@@ -12,6 +12,7 @@ public class ItemType
 //    private EdibleBehavior edible;
 //    private StatBehavior stats;
 //	  private ModBehavior mods;
+//	  private ReadBehavior readable;
     
     public ItemType()
     {
