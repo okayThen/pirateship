@@ -7,19 +7,11 @@ public class ItemType
     private ArrayList<Tag> tags;
     private ArrayList<Tag> tagList; 
 // Current tag list: "Rusty", "Shiny", "Old", "New", "Cursed", "Blessed", "Light", "Heavy"
-//    private EquipBehavior equip;
-//    private ValueType value;
-//    private EdibleBehavior edible;
-//    private StatBehavior stats;
-//	  private ModBehavior mods;
-	private ReadBehavior readable;
-	private String r;
     
     public ItemType()
     {
         tags = new ArrayList<Tag>();
         setTags();
-        r = "";
     }
     
     public void setTags()
@@ -69,13 +61,4 @@ public class ItemType
     	tags.remove(tag);
     }
     
-    public Response read()
-    {
-    	
-    }
-    
-    public void setRead(String r)
-    {
-    	this.r = r;
-    }
 }
