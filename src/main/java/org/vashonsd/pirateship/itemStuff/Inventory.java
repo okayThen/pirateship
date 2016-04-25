@@ -1,7 +1,6 @@
 package org.vashonsd.pirateship.itemStuff;
 
 import java.util.*;
-import org.vashon
 
 public class Inventory
 {

@@ -12,7 +12,7 @@ public class ItemType
 //    private EdibleBehavior edible;
 //    private StatBehavior stats;
 //	  private ModBehavior mods;
-	private ReadBehavior readable;
+//	  private ReadBehavior readable;
 	private String r;
     
     public ItemType()
