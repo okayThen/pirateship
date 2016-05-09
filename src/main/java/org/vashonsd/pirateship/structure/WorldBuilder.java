@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.vashonsd.pirateship.creature.CreatureFactory;
 import org.vashonsd.pirateship.interactions.Baguette;
+import org.vashonsd.pirateship.interactions.Stopwatch;
 import org.vashonsd.pirateship.minigame.*;
 
 /**
@@ -72,6 +73,7 @@ public class WorldBuilder {
 		main.addToInventory(CreatureFactory.newCreature("eagle"));
 		//main.addToInventory(new Baguette());
 		main.addToInventory(CreatureFactory.newCreature("lizard"));
+		main.addToInventory(new Stopwatch());
 		
 		w.addLocation(main);
 		w.addLocation(chat);
