@@ -76,15 +76,7 @@ public abstract class Actor {
 		this.inventory.addActor(a);
 	}
 	
-	public Actor getFromInventory(String name) {
-		return this.inventory.getActor(name);
-	}
-	
-	public Actor removeFromInventory(String name) {
-		return this.inventory.remove(name);
-	}
-	
-	public Actor removeFromInventory(Actor a) {
+	public boolean removeFromInventory(Actor a) {
 		return this.inventory.remove(a);
 	}
 	
@@ -324,11 +316,18 @@ public abstract class Actor {
 		if (commands.containsKey(verb)) {
 			return commands.get(verb).execute(this, req.getPlayer());
 		} else {
-			return new Response(handleOtherwise(verb));
+			return handleOtherwise(req);
 		}
 	}
 	
-	protected String handleOtherwise(String verb) {
-		return "I don't know how to " + verb + " a " + this.getTypeName() + ".";
+	/**
+	 * If the request "falls through" the list of available commands, it makes its way here.
+	 * The standard behavior is just to return a plain Request with a polite error message.
+	 * Other Actors can override this method to provide deeply customized responses.
+	 * @param req
+	 * @return
+	 */
+	protected Response handleOtherwise(Request req) {
+		return new Response("I don't know how to " + req.getVerb() + " a " + this.getTypeName() + ".");
 	}
 }

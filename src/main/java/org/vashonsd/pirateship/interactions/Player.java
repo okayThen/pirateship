@@ -23,6 +23,14 @@ public class Player extends Actor {
 	 */
 	Actor target;
 	
+	public Actor getTarget() {
+		return target;
+	}
+
+	public void setTarget(Actor target) {
+		this.target = target;
+	}
+
 	/**
 	 * Pass a string for an id, a string for a name.
 	 * @param id a unique identifier for this Player. Please look first in the PlayerRegistry to be sure this id is unique.
@@ -60,7 +68,12 @@ public class Player extends Actor {
 		}
 		//Add all the items in the inventory.
 		for (Actor a : this.getAllItems()) {
-			interactions.addActor(a);
+			//Add the Actor at, at most, HELP level of visibility.
+			if (a.getVisibility().compareTo(VisibilityLevel.HELP) >= 0) {
+				interactions.addActor(a, VisibilityLevel.HELP);
+			} else {
+				interactions.addActor(a);
+			}
 		}
 		//Add Mr. Always.
 		interactions.addActor(new Always());
@@ -75,9 +88,7 @@ public class Player extends Actor {
 			refresh();
 			resp = interactions.handle(req);
 		}
-		if (resp.getKeepAlive()) {
-			this.target = resp.getTarget();
-		}
+		this.target = resp.getTarget();
 		return resp;
 	}
 

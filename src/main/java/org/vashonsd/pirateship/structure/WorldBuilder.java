@@ -73,7 +73,18 @@ public class WorldBuilder {
 		main.addToInventory(CreatureFactory.newCreature("eagle"));
 		//main.addToInventory(new Baguette());
 		main.addToInventory(CreatureFactory.newCreature("lizard"));
-		main.addToInventory(new Stopwatch());
+
+		main.addToInventory(new MinigameRunner("20Q"));
+		
+		gameRoom.addToInventory(new MinigameRunner("20Q"));
+		//gameRoom.addToInventory(new MinigameRunner("Blackjack"));
+		gameRoom.addToInventory(new MinigameRunner("CC"));
+		gameRoom.addToInventory(new MinigameRunner("GF"));
+		gameRoom.addToInventory(new MinigameRunner("GuessCalc"));
+		gameRoom.addToInventory(new MinigameRunner("math"));
+		gameRoom.addToInventory(new MinigameRunner("GOPP"));
+		gameRoom.addToInventory(new MinigameRunner("Shot"));
+		gameRoom.addToInventory(new MinigameRunner("Tic tac toe"));
 		
 		w.addLocation(main);
 		w.addLocation(chat);
@@ -82,6 +93,7 @@ public class WorldBuilder {
 		w.addLocation(gameRoom);
 		w.addLocation(prison);
 		//w.addLocation(casino);
+		
 		
 //		gameRoom.addGame(new TwentyQuestionsFactory());
 //		gameRoom.addGame(new CookieClickerFactory());
